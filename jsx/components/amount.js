@@ -6,7 +6,10 @@ export class Amount extends React.Component {
         this.updateCount = this.updateCount.bind(this);
     }
     updateCount(e) {
-        this.props.onUpdateCount(e.target.value);
+        let count = Number(e.target.value);
+        if(count <= this.props.maxCount) {
+            this.props.onUpdateCount(count);
+        }
     }
     render() {
         return(
@@ -26,5 +29,6 @@ let style = {
 
 Amount.propTypes = {
     value: React.PropTypes.number,
+    maxCount: React.PropTypes.number,
     onUpdateCount: React.PropTypes.func,
 };

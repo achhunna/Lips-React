@@ -3,12 +3,13 @@ import axios from 'axios';
 
 import {Section} from '../components/section';
 import {Controls} from '../components/controls';
+
 /*
 var lorem = require('lorem-ipsum');
 
 console.log(lorem({
-    units: 'words',
-    count: 1,
+    units: 'word',
+    count: 10,
 }));*/
 
 export class LipsBox extends React.Component {
@@ -17,7 +18,7 @@ export class LipsBox extends React.Component {
         this.state = {
             ipsums: [],
             count: 5,
-            selectedOption: "Paragraph",
+            selectedOption: "paragraph",
         };
         this.updateCount = this.updateCount.bind(this);
         this.updateOption = this.updateOption.bind(this);
@@ -42,11 +43,11 @@ export class LipsBox extends React.Component {
     parseText(content) {
         if(content !== undefined) {
             switch(this.state.selectedOption) {
-                case "Paragraph":
+                case "paragraph":
                     return content;
-                case "Word":
+                case "word":
                     return content.split(" ")[0];
-                case "Sentence":
+                case "sentence":
                     return content.split(".")[0] +". ";
             }
         }
@@ -55,6 +56,7 @@ export class LipsBox extends React.Component {
 
         let output = [];
         let counter = 1;
+        let maxCount = 100;
 
         for (let i = 0; i < this.state.count; i++) {
             let random_index = Math.floor(Math.random() * this.state.ipsums.length);
@@ -67,7 +69,7 @@ export class LipsBox extends React.Component {
         return(
             <div>
                 <div className="row" style={style.layout}>
-                    <Controls count={this.state.count} onUpdateCount={this.updateCount.bind(this)} selectedOption={this.state.selectedOption} onUpdateOption={this.updateOption.bind(this)} />
+                    <Controls count={this.state.count} onUpdateCount={this.updateCount.bind(this)} selectedOption={this.state.selectedOption} onUpdateOption={this.updateOption.bind(this)} maxCount={maxCount} />
                     <div id="lipsum">
                         {output}
                     </div>

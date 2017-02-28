@@ -23,12 +23,12 @@ export class Controls extends React.Component {
             <form style={style.layout} className="form-inline">
                 <div className="form-group">
                     <label>Amount</label>
-                    <Radio value="Word" checked={this.props.selectedOption==="Word"} onUpdateOption={this.updateOption.bind(this)} />
-                    <Radio value="Sentence" checked={this.props.selectedOption==="Sentence"} onUpdateOption={this.updateOption.bind(this)} />
-                    <Radio value="Paragraph" checked={this.props.selectedOption==="Paragraph"} onUpdateOption={this.updateOption.bind(this)} />
+                    <Radio value="word" checked={this.props.selectedOption==="word"} onUpdateOption={this.updateOption.bind(this)} />
+                    <Radio value="sentence" checked={this.props.selectedOption==="sentence"} onUpdateOption={this.updateOption.bind(this)} />
+                    <Radio value="paragraph" checked={this.props.selectedOption==="paragraph"} onUpdateOption={this.updateOption.bind(this)} />
                 </div>
                 <div className="form-group">
-                    <Amount value={this.props.count} onUpdateCount={this.updateCount.bind(this)} />
+                    <Amount value={this.props.count} onUpdateCount={this.updateCount.bind(this)} maxCount={this.props.maxCount} />
                     <button className="btn btn-default" onClick={this.handleClick}>Copy</button>
                 </div>
             </form>
@@ -44,6 +44,7 @@ let style = {
 
 Controls.propTypes = {
     count: React.PropTypes.number,
+    maxCount: React.PropTypes.number,
     selectedOption: React.PropTypes.string,
     onUpdateCount: React.PropTypes.func,
     onUpdateOption: React.PropTypes.func,
