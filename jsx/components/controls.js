@@ -17,6 +17,27 @@ export class Controls extends React.Component {
     }
     handleClick(e) {
         e.preventDefault();
+        this.copyText('#lipsum');
+    }
+    copyText(elem_ID) {
+        var lipsum = document.querySelector(elem_ID);
+        var range = document.createRange();
+        range.selectNode(lipsum);
+        window.getSelection().addRange(range);
+        try {
+            var successful = document.execCommand('copy');
+            var msg = successful ? 'successful' : 'unsuccessful';
+            this.showMessage('Copied!');
+        } catch(err) {
+            this.showMessage(err);
+        }
+        window.getSelection().removeAllRanges();
+    }
+    showMessage(message) {
+        $('.message').html(message).css('opacity', '1');
+        setTimeout(function() {
+            $('.message').css('opacity', '0');
+        }, 1000);
     }
     render() {
         return(

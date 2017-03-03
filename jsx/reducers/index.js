@@ -1,11 +1,11 @@
 import {action} from '../actions';
 
-export const reducer = (dispatch, action) => {
-    /*
+export const reducer = (store, action) => {
     switch(action.type) {
         case "test_action":
-            return {...dispatch, action.payLoad};
+            return store;
+        default:
+            return store;
     }
-    */
-    return null;
+    //return null;
 };

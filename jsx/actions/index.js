@@ -1,6 +1,4 @@
-export const action = () => {
-    return {
-        type: "test_action",
-        payLoad: 1,
-    }
-}
+export const action = () => ({
+    type: "test_action",
+    payLoad: 1,
+});

@@ -1,12 +1,22 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore} from 'redux';
+import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
+import createLogger from 'redux-logger';
 import {reducer} from './reducers';
-
 import {LipsBox} from './container/lipsBox';
 
-const store = createStore(reducer, 0);
+const logger = createLogger();
+const initialState = {name: "achhunna"};
+const store = createStore(reducer, initialState, applyMiddleware(logger));
+
+store.subscribe(() => {
+  console.log(store.getState());
+});
+
+store.dispatch({
+    type: "test_action",
+});
 
 ReactDOM.render(
     <Provider store={store}>

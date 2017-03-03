@@ -7,7 +7,7 @@ export class Amount extends React.Component {
     }
     updateCount(e) {
         let count = Number(e.target.value);
-        if(count <= this.props.maxCount) {
+        if(count >= 0 && count <= this.props.maxCount) {
             this.props.onUpdateCount(count);
         }
     }

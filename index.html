@@ -9,6 +9,15 @@
             body {
                 /*background-image: linear-gradient(-128deg, rgba(255, 181, 32, 0.93) 3%, rgba(239, 39, 153, 0.93) 88%, rgba(237, 18, 171, 0.93) 100%);*/
             }
+            .message {
+                position: relative;
+                top: 20px;
+                opacity: 0;
+                transition: 1s all;
+                color: #CF1205;
+                font-weight: bold;
+                font-size: 150%;
+            }
         </style>
     </head>
     <body>
@@ -21,13 +30,11 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#">Welcome</a>
+                    <a class="navbar-brand" href="#"></a>
                 </div>
                 <div id="navbar" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
                         <li class="active"><a href="#">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#contact">Contact</a></li>
                         <li><span id="appNav"></span></li>
                     </ul>
                 </div>
@@ -37,12 +44,13 @@
             <div class="row">
                 <div class="jumbotron">
                     <h1 class="text-center">💋Lips(um)</h1>
+                    <div class="message text-center">#</div>
                 </div>
                 <div id="app" class="col-xs-12"></div>
 
             </div>
         </div>
         <script type="text/javascript" src="js/client.min.js"></script>
-
+        <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
     </body>
 </html>
