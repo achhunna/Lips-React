@@ -7,7 +7,7 @@ import {reducer} from './reducers';
 import {LipsBox} from './container/lipsBox';
 
 const logger = createLogger();
-const initialState = {name: "achhunna"};
+const initialState = {num: 1};
 const store = createStore(reducer, initialState, applyMiddleware(logger));
 
 store.subscribe(() => {

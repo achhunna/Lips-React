@@ -4,6 +4,7 @@ export class Amount extends React.Component {
     constructor(props) {
         super(props);
         this.updateCount = this.updateCount.bind(this);
+        this.handleClick = this.handleClick.bind(this);
     }
     updateCount(e) {
         let count = Number(e.target.value);
@@ -11,11 +12,16 @@ export class Amount extends React.Component {
             this.props.onUpdateCount(count);
         }
     }
+    handleClick(e) {
+        e.preventDefault();
+        this.props.onClickHandle();
+    }
     render() {
         return(
-            <div style={style.layout}>
-                <label>Count</label>
-                <input type="number" className="form-control" value={this.props.value} onChange={this.updateCount} />
+            <div className="form-group">
+                <label className="radio-inline">Count</label>
+                <input type="number" className="form-control radio-inline" style={style.layout} value={this.props.value} onChange={this.updateCount} />
+                <button className="btn btn-default radio-inline" onClick={this.handleClick}>Copy</button>
             </div>
         );
     }
@@ -23,12 +29,12 @@ export class Amount extends React.Component {
 
 let style = {
     layout: {
-        display: "inline",
-    },
+        width: "72px"
+    }
 };
 
 Amount.propTypes = {
     value: React.PropTypes.number,
     maxCount: React.PropTypes.number,
-    onUpdateCount: React.PropTypes.func,
+    onUpdateCount: React.PropTypes.func
 };

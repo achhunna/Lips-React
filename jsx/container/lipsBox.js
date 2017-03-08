@@ -67,23 +67,26 @@ export class LipsBox extends React.Component {
         }
 
         return(
-            <div>
-                <div className="row" style={style.layout}>
-                    <Controls count={this.state.count} onUpdateCount={this.updateCount.bind(this)} selectedOption={this.state.selectedOption} onUpdateOption={this.updateOption.bind(this)} maxCount={maxCount} />
-                    <div id="lipsum">
-                        {output}
-                    </div>
+            <div className="row">
+                <div style={style.controls}>
+                    <Controls count={this.state.count} onUpdateCount={this.updateCount} selectedOption={this.state.selectedOption} onUpdateOption={this.updateOption} maxCount={maxCount} />
+                </div>
+                <div id="lipsum" style={style.output}>
+                    {output}
                 </div>
             </div>
         );
     }
 }
 let style = {
-    layout: {
-        height: "400px",
-        overflow: "scroll",
-        border: "1px solid black",
-        padding: "20px",
-        borderRadius: "5px",
+    controls: {
+        marginBottom: '10px'
     },
+    output: {
+        height: "350px",
+        overflow: "scroll",
+        border: "1px solid #aaa",
+        padding: "20px",
+        borderRadius: "5px"
+    }
 };

@@ -1,4 +1,4 @@
 export const action = () => ({
     type: "test_action",
-    payLoad: 1,
+    payLoad: 1
 });

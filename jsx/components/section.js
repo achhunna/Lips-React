@@ -23,6 +23,6 @@ let style = {
     layout: {
         fontSize: "15px",
         marginBottom: "20px",
-        display: "inline",
+        display: "inline"
     },
 };
