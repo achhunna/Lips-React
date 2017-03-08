@@ -25,9 +25,9 @@ export class Controls extends React.Component {
             <form style={style.layout} className="form-inline">
                 <div className="form-group">
                     <label className="radio-inline">Amount</label>
-                    <Radio value="word" checked={this.props.selectedOption==="word"} onUpdateOption={this.updateOption} />
-                    <Radio value="sentence" checked={this.props.selectedOption==="sentence"} onUpdateOption={this.updateOption} />
-                    <Radio value="paragraph" checked={this.props.selectedOption==="paragraph"} onUpdateOption={this.updateOption} />
+                    <Radio value="words" checked={this.props.selectedOption==="words"} onUpdateOption={this.updateOption} />
+                    <Radio value="sentences" checked={this.props.selectedOption==="sentences"} onUpdateOption={this.updateOption} />
+                    <Radio value="paragraphs" checked={this.props.selectedOption==="paragraphs"} onUpdateOption={this.updateOption} />
                 </div>
                 <Amount value={this.props.count} onUpdateCount={this.updateCount} maxCount={this.props.maxCount} onClickHandle={this.handleClick} />
             </form>

@@ -11,17 +11,19 @@
             body {
                 /*background-image: linear-gradient(-128deg, rgba(255, 181, 32, 0.93) 3%, rgba(239, 39, 153, 0.93) 88%, rgba(237, 18, 171, 0.93) 100%);*/
             }
-            .view-box {
-                height: 100vh;
+            .red-lips {
+                color: #CF1205;
+            }
+            .lips {
+                font-size: 50%;
             }
             .message {
-                position: relative;
-                top: 20px;
+                display: inline-block;
+                margin-left: 10px;
                 opacity: 0;
                 transition: 1s all;
                 color: #CF1205;
-                font-weight: bold;
-                font-size: 150%;
+                font-size: 125%;
             }
         </style>
     </head>
@@ -46,11 +48,11 @@
             </div>
         </nav>
         -->
-        <div class="container view-box">
+        <div class="container">
             <div class="row">
                 <div class="jumbotron">
-                    <h1 class="text-center">💋Lips(um)</h1>
-                    <div class="message text-center">#</div>
+                    <h1 class="text-center">Lips(um)<span class="lips">💋</span></h1>
+                    <h3 class="text-center">Dummy Text Generator</h3>
                 </div>
                 <div id="app" class="col-xs-12"></div>
 

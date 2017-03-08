@@ -4,13 +4,7 @@ import axios from 'axios';
 import {Section} from '../components/section';
 import {Controls} from '../components/controls';
 
-/*
 var lorem = require('lorem-ipsum');
-
-console.log(lorem({
-    units: 'word',
-    count: 10,
-}));*/
 
 export class LipsBox extends React.Component {
     constructor(props) {
@@ -18,11 +12,12 @@ export class LipsBox extends React.Component {
         this.state = {
             ipsums: [],
             count: 5,
-            selectedOption: "paragraph",
+            selectedOption: "paragraphs",
         };
         this.updateCount = this.updateCount.bind(this);
         this.updateOption = this.updateOption.bind(this);
     }
+    /*
     componentDidMount() {
         axios.get('./random.txt').then(response => {
             let response_array = response.data.split("\n");
@@ -30,6 +25,19 @@ export class LipsBox extends React.Component {
             this.setState({ipsums: response_array});
         });
     }
+    parseText(content) {
+        if(content !== undefined) {
+            switch(this.state.selectedOption) {
+                case "paragraphs":
+                    return content;
+                case "words":
+                    return content.split(" ")[0];
+                case "sentences":
+                    return content.split(".")[0] +". ";
+            }
+        }
+    }
+    */
     updateCount(new_count) {
         this.setState({
             count: new_count,
@@ -40,30 +48,39 @@ export class LipsBox extends React.Component {
             selectedOption: new_option,
         })
     }
-    parseText(content) {
-        if(content !== undefined) {
-            switch(this.state.selectedOption) {
-                case "paragraph":
-                    return content;
-                case "word":
-                    return content.split(" ")[0];
-                case "sentence":
-                    return content.split(".")[0] +". ";
-            }
-        }
-    }
     render() {
-
-        let output = [];
-        let counter = 1;
-        let maxCount = 100;
-
+        /*
         for (let i = 0; i < this.state.count; i++) {
             let random_index = Math.floor(Math.random() * this.state.ipsums.length);
             let random = this.state.ipsums[random_index];
             let return_text = this.parseText(random);
             output.push(<Section text={return_text} key={counter} selectedOption={this.state.selectedOption} />);
             counter++;
+        }
+        */
+        let maxCount = 100;
+        let generatedText = "";
+        let output = [];
+        let counter = 0;
+        let count = this.state.count;
+        let selectedOption = this.state.selectedOption;
+
+        if (selectedOption === "paragraphs") {
+
+            for (let i = 0; i < count; i++) {
+                generatedText = lorem({
+                    units: selectedOption,
+                    count: 1
+                });
+                output.push(<Section text={generatedText} key={counter} selectedOption={selectedOption} />);
+                counter++;
+            }
+        } else if(count !== 0) {
+            generatedText = lorem({
+                units: selectedOption,
+                count: count
+            });
+            output.push(<Section text={generatedText} key={counter} selectedOption={selectedOption} />);
         }
 
         return(

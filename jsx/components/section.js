@@ -5,7 +5,7 @@ export class Section extends React.Component {
         const selectedOption = this.props.selectedOption;
         let section_render = "";
 
-        if(selectedOption === "paragraph") {
+        if(selectedOption === "paragraphs") {
             section_render = <p>{this.props.text}</p>;
         } else {
             section_render = this.props.text + " ";

@@ -22,6 +22,7 @@ export class Amount extends React.Component {
                 <label className="radio-inline">Count</label>
                 <input type="number" className="form-control radio-inline" style={style.layout} value={this.props.value} onChange={this.updateCount} />
                 <button className="btn btn-default radio-inline" onClick={this.handleClick}>Copy</button>
+                <div className="message">#</div>
             </div>
         );
     }
