@@ -1,16 +1,17 @@
 import React from 'react';
 import axios from 'axios';
+import {connect} from 'react-redux';
 
 import {Section} from '../components/section';
 import {Controls} from '../components/controls';
 
 var lorem = require('lorem-ipsum');
 
-export class LipsBox extends React.Component {
+class LipsBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            ipsums: [],
+            //ipsums: [],
             count: 5,
             selectedOption: "paragraphs",
         };
@@ -38,6 +39,9 @@ export class LipsBox extends React.Component {
         }
     }
     */
+    componentDidMount() {
+        console.log(this.props);
+    }
     updateCount(new_count) {
         this.setState({
             count: new_count,
@@ -82,7 +86,6 @@ export class LipsBox extends React.Component {
             });
             output.push(<Section text={generatedText} key={counter} selectedOption={selectedOption} />);
         }
-
         return(
             <div className="row">
                 <div style={style.controls}>
@@ -107,3 +110,11 @@ let style = {
         borderRadius: "5px"
     }
 };
+
+const mapStoreToProps = (store) => {
+    return {
+        num: store.num
+    }
+};
+
+export default connect(mapStoreToProps)(LipsBox);

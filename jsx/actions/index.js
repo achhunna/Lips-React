@@ -1,4 +1,4 @@
-export const action = () => ({
-    type: "test_action",
-    payLoad: 1
+export const updateCount = (count) => ({
+    type: "updateCount",
+    payLoad: count
 });

@@ -19,7 +19,7 @@ export class Amount extends React.Component {
     render() {
         return(
             <div className="form-group">
-                <label className="radio-inline">Count</label>
+                <label className="radio-inline">Count (max 100)</label>
                 <input type="number" className="form-control radio-inline" style={style.layout} value={this.props.value} onChange={this.updateCount} />
                 <button className="btn btn-default radio-inline" onClick={this.handleClick}>Copy</button>
                 <div className="message">#</div>

@@ -1,11 +1,17 @@
-import {action} from '../actions';
+import {combineReducers} from 'redux';
 // Reducer: function that takes state and action and returns new state
-export const reducer = (store, action) => {
+export const reducer = (state = {num: 5}, action) => {
     switch(action.type) {
-        case "test_action":
-            return store;
+        case "updateCount":
+            return Object.assign({}, state, { num: action.payLoad });
         default:
-            return store;
+            return state;
     }
     //return null;
 };
+
+const mainReducer = combineReducers({
+    reducer
+});
+
+//export default mainReducer;

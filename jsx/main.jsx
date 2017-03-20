@@ -4,19 +4,18 @@ import {createStore, applyMiddleware} from 'redux';
 import {Provider} from 'react-redux';
 import createLogger from 'redux-logger';
 import {reducer} from './reducers';
-import {LipsBox} from './container/lipsBox';
+import LipsBox from './container/lipsBox';
+import {updateCount} from './actions';
 
 const logger = createLogger();
-const initialState = {num: 1};
-const store = createStore(reducer, initialState, applyMiddleware(logger));
+const middleware = applyMiddleware(logger);
+const store = createStore(reducer, middleware);
 
 store.subscribe(() => {
-  console.log(store.getState());
+  console.log('store changed', store.getState());
 });
 
-store.dispatch({
-    type: "test_action",
-});
+store.dispatch(updateCount(10));
 
 ReactDOM.render(
     <Provider store={store}>

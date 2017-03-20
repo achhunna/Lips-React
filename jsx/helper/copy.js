@@ -1,4 +1,4 @@
-const copyText = function(elem_ID) {
+export const COPYTEXT = function(elem_ID) {
     var lipsum = document.querySelector(elem_ID);
     var range = document.createRange();
     range.selectNode(lipsum);
@@ -20,5 +20,3 @@ function showMessage(message) {
         $('.message').css('opacity', '0');
     }, 1000);
 }
-
-module.exports = copyText;
