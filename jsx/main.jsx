@@ -5,17 +5,23 @@ import {Provider} from 'react-redux';
 import createLogger from 'redux-logger';
 import {reducer} from './reducers';
 import LipsBox from './container/lipsBox';
-import {updateCount} from './actions';
+import * as actions from './actions';
 
 const logger = createLogger();
 const middleware = applyMiddleware(logger);
-const store = createStore(reducer, middleware);
+const initialState = {
+    count: 5,
+    selectedOption: "paragraphs"
+};
+const store = createStore(reducer, initialState, middleware);
 
 store.subscribe(() => {
   console.log('store changed', store.getState());
 });
 
-store.dispatch(updateCount(10));
+setTimeout(() => {
+    store.dispatch(actions.updateCount(10));
+}, 1000);
 
 ReactDOM.render(
     <Provider store={store}>

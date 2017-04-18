@@ -3,7 +3,7 @@ import {Radio} from './radio';
 import {Amount} from './amount';
 import {COPYTEXT} from '../helper/copy';
 
-export class Controls extends React.Component {
+class Controls extends React.Component {
     constructor(props) {
         super(props);
         this.updateCount = this.updateCount.bind(this);
@@ -12,9 +12,11 @@ export class Controls extends React.Component {
     }
     updateCount(new_count) {
         this.props.onUpdateCount(new_count);
+        //dispatch(updateCount(new_count));
     }
     updateOption(new_option) {
         this.props.onUpdateOption(new_option);
+        //dispatch(updateSelectedOption(new_option));
     }
     handleClick() {
         COPYTEXT('#lipsum');
@@ -46,5 +48,8 @@ Controls.propTypes = {
     maxCount: React.PropTypes.number,
     selectedOption: React.PropTypes.string,
     onUpdateCount: React.PropTypes.func,
-    onUpdateOption: React.PropTypes.func
+    onUpdateOption: React.PropTypes.func,
 };
+
+//export default connect(mapStoreToProps, mapDispatchToProps)(Controls);
+export default Controls;

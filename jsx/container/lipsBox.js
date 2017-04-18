@@ -1,11 +1,26 @@
 import React from 'react';
 import axios from 'axios';
 import {connect} from 'react-redux';
+import * as actions from '../actions';
 
 import {Section} from '../components/section';
-import {Controls} from '../components/controls';
+import Controls from '../components/controls';
 
 var lorem = require('lorem-ipsum');
+
+const mapStoreToProps = (store) => {
+    return {
+        count: store.count,
+        selectedOption: store.selectedOption
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateCount: dispatch(actions.updateCount),
+        updateSelectedOption: dispatch(actions.updateSelectedOption)
+    }
+};
 
 class LipsBox extends React.Component {
     constructor(props) {
@@ -40,17 +55,21 @@ class LipsBox extends React.Component {
     }
     */
     componentDidMount() {
-        console.log(this.props);
+
     }
     updateCount(new_count) {
+        /*
         this.setState({
-            count: new_count,
-        })
+            count: new_count
+        })*/
+        this.props.updateCount(new_count);
     }
     updateOption(new_option) {
+        /*
         this.setState({
             selectedOption: new_option,
-        })
+        })*/
+        this.props.updateSelectedOption(new_option);
     }
     render() {
         /*
@@ -62,12 +81,14 @@ class LipsBox extends React.Component {
             counter++;
         }
         */
-        let maxCount = 100;
+        const maxCount = 100;
         let generatedText = "";
         let output = [];
         let counter = 0;
-        let count = this.state.count;
-        let selectedOption = this.state.selectedOption;
+        const count = this.props.count;
+        const selectedOption = this.props.selectedOption;
+
+        console.log('test');
 
         if (selectedOption === "paragraphs") {
 
@@ -89,7 +110,7 @@ class LipsBox extends React.Component {
         return(
             <div className="row">
                 <div style={style.controls}>
-                    <Controls count={this.state.count} onUpdateCount={this.updateCount} selectedOption={this.state.selectedOption} onUpdateOption={this.updateOption} maxCount={maxCount} />
+                    <Controls count={this.props.count} onUpdateCount={this.updateCount} selectedOption={this.props.selectedOption} onUpdateOption={this.updateOption} maxCount={maxCount} />
                 </div>
                 <div id="lipsum" style={style.output}>
                     {output}
@@ -111,10 +132,11 @@ let style = {
     }
 };
 
-const mapStoreToProps = (store) => {
-    return {
-        num: store.num
-    }
+LipsBox.propTypes = {
+    count: React.PropTypes.number,
+    selectedOption: React.PropTypes.string,
+    updateCount: React.PropTypes.func,
+    updateSelectedOption: React.PropTypes.func
 };
 
-export default connect(mapStoreToProps)(LipsBox);
+export default connect(mapStoreToProps, mapDispatchToProps)(LipsBox);

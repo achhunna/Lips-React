@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import {updateCount} from '../actions';
 
 export class Amount extends React.Component {
     constructor(props) {
@@ -10,6 +12,7 @@ export class Amount extends React.Component {
         let count = Number(e.target.value);
         if(count >= 0 && count <= this.props.maxCount) {
             this.props.onUpdateCount(count);
+            //this.props.dispatch(updateCount(count));
         }
     }
     handleClick(e) {
@@ -37,5 +40,14 @@ let style = {
 Amount.propTypes = {
     value: React.PropTypes.number,
     maxCount: React.PropTypes.number,
-    onUpdateCount: React.PropTypes.func
+    onUpdateCount: React.PropTypes.func,
+    updateCount: React.PropTypes.func
 };
+
+const mapStoreToProps = (store) => {
+    return {
+        num: store.num
+    }
+};
+
+export default connect(mapStoreToProps, {updateCount})(Amount);
