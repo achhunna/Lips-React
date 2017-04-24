@@ -26,5 +26,6 @@ let style = {
 
 Radio.propTypes = {
     value: React.PropTypes.string,
+    checked: React.PropTypes.bool,
     onUpdateOption: React.PropTypes.func
 };

@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {createStore, applyMiddleware} from 'redux';
-import {Provider} from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
+import { Provider } from 'react-redux';
 import createLogger from 'redux-logger';
-import {reducer} from './reducers';
+import { reducer } from './reducers';
 import LipsBox from './container/lipsBox';
 import * as actions from './actions';
 
@@ -18,10 +18,6 @@ const store = createStore(reducer, initialState, middleware);
 store.subscribe(() => {
   console.log('store changed', store.getState());
 });
-
-setTimeout(() => {
-    store.dispatch(actions.updateCount(10));
-}, 1000);
 
 ReactDOM.render(
     <Provider store={store}>

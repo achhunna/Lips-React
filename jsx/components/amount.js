@@ -1,8 +1,20 @@
 import React from 'react';
-import {connect} from 'react-redux';
-import {updateCount} from '../actions';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 
-export class Amount extends React.Component {
+const mapStoreToProps = (store) => {
+    return {
+
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        updateCount: (count) => dispatch(actions.updateCount(count)),
+    }
+};
+
+class Amount extends React.Component {
     constructor(props) {
         super(props);
         this.updateCount = this.updateCount.bind(this);
@@ -11,8 +23,7 @@ export class Amount extends React.Component {
     updateCount(e) {
         let count = Number(e.target.value);
         if(count >= 0 && count <= this.props.maxCount) {
-            this.props.onUpdateCount(count);
-            //this.props.dispatch(updateCount(count));
+            this.props.updateCount(count);
         }
     }
     handleClick(e) {
@@ -40,14 +51,7 @@ let style = {
 Amount.propTypes = {
     value: React.PropTypes.number,
     maxCount: React.PropTypes.number,
-    onUpdateCount: React.PropTypes.func,
     updateCount: React.PropTypes.func
 };
 
-const mapStoreToProps = (store) => {
-    return {
-        num: store.num
-    }
-};
-
-export default connect(mapStoreToProps, {updateCount})(Amount);
+export default connect(mapStoreToProps, mapDispatchToProps)(Amount);
