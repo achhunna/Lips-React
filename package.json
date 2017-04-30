@@ -1,0 +1,19 @@
+{
+  "name": "lips",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/achhunna/Lips-React.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/achhunna/Lips-React/issues"
+  },
+  "homepage": "https://github.com/achhunna/Lips-React#readme"
+}
