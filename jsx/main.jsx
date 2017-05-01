@@ -13,11 +13,11 @@ const initialState = {
     count: 5,
     selectedOption: "paragraphs"
 };
-const store = createStore(reducer, initialState, middleware);
+const store = createStore(reducer, initialState);
 
-store.subscribe(() => {
-  console.log('store changed', store.getState());
-});
+// store.subscribe(() => {
+//   console.log('store changed', store.getState());
+// });
 
 ReactDOM.render(
     <Provider store={store}>
