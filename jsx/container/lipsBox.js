@@ -51,12 +51,12 @@ class LipsBox extends React.Component {
         );
     }
 }
-let style = {
+const style = {
     controls: {
         marginBottom: '10px'
     },
     output: {
-        height: "350px",
+        height: "calc(100vh - 350px)",
         overflow: "scroll",
         border: "1px solid #aaa",
         padding: "20px",
