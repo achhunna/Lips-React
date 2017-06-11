@@ -15,10 +15,6 @@ const initialState = {
 };
 const store = createStore(reducer, initialState);
 
-// store.subscribe(() => {
-//   console.log('store changed', store.getState());
-// });
-
 ReactDOM.render(
   <Provider store={store}>
   <LipsBox/>
