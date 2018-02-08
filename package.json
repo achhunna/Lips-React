@@ -13,8 +13,10 @@
   "license": "ISC",
   "dependencies": {
     "lorem-ipsum": "^1.0.3",
-    "react": "15.3.0",
-    "react-dom": "15.3.0",
+    "react": "^15.3.0",
+    "react-dom": "^15.3.0",
+    "react-redux": "^5.0.6",
+    "react-router-redux": "^4.0.8",
     "redux": "^3.6.0",
     "redux-logger": "^2.8.1",
     "redux-thunk": "^2.2.0"
