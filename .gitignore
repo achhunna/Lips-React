@@ -13,3 +13,5 @@ docker-compose.yml
 
 # Transformed JS from JSX
 js/client.min.js
+
+package-lock.json
